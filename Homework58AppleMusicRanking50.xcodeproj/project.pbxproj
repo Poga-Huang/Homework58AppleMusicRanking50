@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		D6A0A5F42798F19A00FDFE0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A0A5F32798F19A00FDFE0E /* AppDelegate.swift */; };
 		D6A0A5F62798F19A00FDFE0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A0A5F52798F19A00FDFE0E /* SceneDelegate.swift */; };
-		D6A0A5F82798F19A00FDFE0E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A0A5F72798F19A00FDFE0E /* ViewController.swift */; };
 		D6A0A5FB2798F19A00FDFE0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6A0A5F92798F19A00FDFE0E /* Main.storyboard */; };
 		D6A0A5FD2798F19F00FDFE0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6A0A5FC2798F19F00FDFE0E /* Assets.xcassets */; };
 		D6A0A6002798F19F00FDFE0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6A0A5FE2798F19F00FDFE0E /* LaunchScreen.storyboard */; };
+		D6A0A6082798F75A00FDFE0E /* RankingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A0A6072798F75A00FDFE0E /* RankingTableViewController.swift */; };
+		D6A0A60A2798F77C00FDFE0E /* MusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A0A6092798F77B00FDFE0E /* MusicTableViewCell.swift */; };
+		D6A0A60C2798F78A00FDFE0E /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A0A60B2798F78A00FDFE0E /* WebViewController.swift */; };
+		D6A0A60E2798F94300FDFE0E /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A0A60D2798F94300FDFE0E /* APIResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D6A0A5F02798F19A00FDFE0E /* Homework58AppleMusicRanking50.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homework58AppleMusicRanking50.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6A0A5F32798F19A00FDFE0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6A0A5F52798F19A00FDFE0E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D6A0A5F72798F19A00FDFE0E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D6A0A5FA2798F19A00FDFE0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D6A0A5FC2798F19F00FDFE0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6A0A5FF2798F19F00FDFE0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D6A0A6012798F19F00FDFE0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6A0A6072798F75A00FDFE0E /* RankingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingTableViewController.swift; sourceTree = "<group>"; };
+		D6A0A6092798F77B00FDFE0E /* MusicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTableViewCell.swift; sourceTree = "<group>"; };
+		D6A0A60B2798F78A00FDFE0E /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		D6A0A60D2798F94300FDFE0E /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +64,13 @@
 			children = (
 				D6A0A5F32798F19A00FDFE0E /* AppDelegate.swift */,
 				D6A0A5F52798F19A00FDFE0E /* SceneDelegate.swift */,
-				D6A0A5F72798F19A00FDFE0E /* ViewController.swift */,
-				D6A0A5F92798F19A00FDFE0E /* Main.storyboard */,
+				D6A0A60D2798F94300FDFE0E /* APIResponse.swift */,
+				D6A0A6072798F75A00FDFE0E /* RankingTableViewController.swift */,
+				D6A0A60B2798F78A00FDFE0E /* WebViewController.swift */,
+				D6A0A6092798F77B00FDFE0E /* MusicTableViewCell.swift */,
 				D6A0A5FC2798F19F00FDFE0E /* Assets.xcassets */,
 				D6A0A5FE2798F19F00FDFE0E /* LaunchScreen.storyboard */,
+				D6A0A5F92798F19A00FDFE0E /* Main.storyboard */,
 				D6A0A6012798F19F00FDFE0E /* Info.plist */,
 			);
 			path = Homework58AppleMusicRanking50;
@@ -138,9 +147,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6A0A5F82798F19A00FDFE0E /* ViewController.swift in Sources */,
 				D6A0A5F42798F19A00FDFE0E /* AppDelegate.swift in Sources */,
+				D6A0A6082798F75A00FDFE0E /* RankingTableViewController.swift in Sources */,
 				D6A0A5F62798F19A00FDFE0E /* SceneDelegate.swift in Sources */,
+				D6A0A60C2798F78A00FDFE0E /* WebViewController.swift in Sources */,
+				D6A0A60A2798F77C00FDFE0E /* MusicTableViewCell.swift in Sources */,
+				D6A0A60E2798F94300FDFE0E /* APIResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
