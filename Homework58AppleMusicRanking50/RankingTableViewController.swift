@@ -11,54 +11,35 @@ private let segueIdentifier = "appleMusicPage"
 
 class RankingTableViewController: UITableViewController {
     
-    var results = [APIResponse]()
+    let viewModel = RankingViewModel()
     var passUrl:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        catchData()
-    }
-    
-    @IBSegueAction func passUrl(_ coder: NSCoder) -> WebViewController? {
-        guard let passUrl = passUrl else {return nil}
-        return WebViewController(coder: coder, urlString: passUrl)
+        
+        viewModel.isStarting = true
+        
+        viewModel.onRequestEnd = {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
+        }
+        
     }
     
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if results.isEmpty == false{
-            return results[0].feed.results.count
-        }else{
-            return 1
-        }
+        return viewModel.musicCellViewModels.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? MusicTableViewCell else{return UITableViewCell()}
+       
+        let viewModel = viewModel.musicCellViewModels[indexPath.row]
+        cell.setupCell(viewModel: viewModel)
         
-        if results.isEmpty == false{
-            cell.artistNameLabel.text = results[0].feed.results[indexPath.row].artistName
-            cell.songNameLabel.text = results[0].feed.results[indexPath.row].name
-            cell.releaseDateLabel.text = "發行日期：" + results[0].feed.results[indexPath.row].releaseDate
-            cell.rankImageView.image = UIImage(systemName: "\(indexPath.row+1).circle")
-            cell.songCoverImageView.image = UIImage(systemName: "photo.artframe")
-            //抓圖
-            if indexPath == tableView.indexPath(for: cell){
-                catchPhoto(url: results[0].feed.results[indexPath.row].artworkUrl100) { (data) in
-                    DispatchQueue.main.async {
-                        cell.songCoverImageView.image = UIImage(data: data)
-                    }
-                }
-            }
-        }else{
-            //如果資料還沒載好先顯示Loading...
-            cell.artistNameLabel.text = "Loading..."
-            cell.songNameLabel.text  = "Lodaing ..."
-            cell.releaseDateLabel.text = "Loading..."
-            cell.songCoverImageView.image = UIImage(systemName: "photo.artframe")
-            tableView.allowsSelection = false
-        }
         return cell
     }
     
@@ -70,45 +51,23 @@ class RankingTableViewController: UITableViewController {
    
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        passUrl = results[0].feed.results[indexPath.row].url
+       
+        let viewModel = viewModel.musicCellViewModels[indexPath.row]
+        passUrl = viewModel.url
+        
         performSegue(withIdentifier: segueIdentifier, sender: nil)
     }
     
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        guard passUrl != nil else {return false}
-        return true
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == segueIdentifier{
+            if let dvc = segue.destination as? WebViewController{
+                dvc.urlString = passUrl
+            }
+        }
     }
     
-    
-    //抓資料
-    func catchData(){
-        guard let url = URL(string: "https://rss.applemarketingtools.com/api/v2/tw/music/most-played/50/songs.json") else{return}
-        URLSession.shared.dataTask(with: url) { (data,response,error)in
-            if let data = data {
-                do{
-                    let apiResponse = try JSONDecoder().decode(APIResponse.self, from: data)
-                    self.results.append(apiResponse)
-                    DispatchQueue.main.async {
-                        self.animateTable()
-                    }
-                    print("catchData")
-                }catch{
-                    print(error)
-                }
-            }
-        }.resume()
-    }
-    //抓圖
-    func catchPhoto(url:String,completion:@escaping(Data)->()){
-        guard let url = URL(string: url) else{return}
-        URLSession.shared.dataTask(with: url) { (data,response,error) in
-            if let data = data {
-                DispatchQueue.main.async {
-                    completion(data)
-                }
-            }
-        }.resume()
-    }
+  
+   
     //TableView動畫
     func animateTable() {
         //先重新讀入tableView

@@ -11,14 +11,8 @@ import WebKit
 class WebViewController: UIViewController,WKNavigationDelegate {
     
     
-    var urlString:String
-    init?(coder:NSCoder,urlString:String){
-        self.urlString = urlString
-        super.init(coder: coder)
-    }
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    var urlString:String?
+   
     
 
     @IBOutlet weak var loadingActivityIndicator: UIActivityIndicatorView!
@@ -26,12 +20,16 @@ class WebViewController: UIViewController,WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        guard let url = URL(string: urlString) else{return}
-        let urlRequest = URLRequest(url: url)
-        myWebView.load(urlRequest)
         
+        if let urlString = urlString,let url = URL(string: urlString) {
+            let urlRequest = URLRequest(url: url)
+            myWebView.load(urlRequest)
+        }
         myWebView.navigationDelegate = self
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        urlString = ""
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {

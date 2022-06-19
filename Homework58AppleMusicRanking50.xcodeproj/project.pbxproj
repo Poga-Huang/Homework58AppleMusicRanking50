@@ -16,6 +16,9 @@
 		D6A0A60A2798F77C00FDFE0E /* MusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A0A6092798F77B00FDFE0E /* MusicTableViewCell.swift */; };
 		D6A0A60C2798F78A00FDFE0E /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A0A60B2798F78A00FDFE0E /* WebViewController.swift */; };
 		D6A0A60E2798F94300FDFE0E /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A0A60D2798F94300FDFE0E /* APIResponse.swift */; };
+		D6B831E8285F06CE004545BF /* RankingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B831E7285F06CE004545BF /* RankingViewModel.swift */; };
+		D6B831EA285F06F6004545BF /* DownloadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B831E9285F06F6004545BF /* DownloadHelper.swift */; };
+		D6B831EC285F097E004545BF /* MusicCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B831EB285F097E004545BF /* MusicCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		D6A0A6092798F77B00FDFE0E /* MusicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTableViewCell.swift; sourceTree = "<group>"; };
 		D6A0A60B2798F78A00FDFE0E /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		D6A0A60D2798F94300FDFE0E /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
+		D6B831E7285F06CE004545BF /* RankingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewModel.swift; sourceTree = "<group>"; };
+		D6B831E9285F06F6004545BF /* DownloadHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadHelper.swift; sourceTree = "<group>"; };
+		D6B831EB285F097E004545BF /* MusicCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +71,10 @@
 				D6A0A5F32798F19A00FDFE0E /* AppDelegate.swift */,
 				D6A0A5F52798F19A00FDFE0E /* SceneDelegate.swift */,
 				D6A0A60D2798F94300FDFE0E /* APIResponse.swift */,
+				D6B831E7285F06CE004545BF /* RankingViewModel.swift */,
+				D6B831EB285F097E004545BF /* MusicCellViewModel.swift */,
 				D6A0A6072798F75A00FDFE0E /* RankingTableViewController.swift */,
+				D6B831E9285F06F6004545BF /* DownloadHelper.swift */,
 				D6A0A60B2798F78A00FDFE0E /* WebViewController.swift */,
 				D6A0A6092798F77B00FDFE0E /* MusicTableViewCell.swift */,
 				D6A0A5FC2798F19F00FDFE0E /* Assets.xcassets */,
@@ -148,11 +157,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6A0A5F42798F19A00FDFE0E /* AppDelegate.swift in Sources */,
+				D6B831EC285F097E004545BF /* MusicCellViewModel.swift in Sources */,
 				D6A0A6082798F75A00FDFE0E /* RankingTableViewController.swift in Sources */,
+				D6B831E8285F06CE004545BF /* RankingViewModel.swift in Sources */,
 				D6A0A5F62798F19A00FDFE0E /* SceneDelegate.swift in Sources */,
 				D6A0A60C2798F78A00FDFE0E /* WebViewController.swift in Sources */,
 				D6A0A60A2798F77C00FDFE0E /* MusicTableViewCell.swift in Sources */,
 				D6A0A60E2798F94300FDFE0E /* APIResponse.swift in Sources */,
+				D6B831EA285F06F6004545BF /* DownloadHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,4 +19,14 @@ struct APIResponse:Codable{
             var url:String
         }
     }
+    
+    static func apiResponseHandler(data:Data)->APIResponse?{
+        do{
+            let result = try JSONDecoder().decode(APIResponse.self, from: data)
+            return result
+        }
+        catch{
+            return nil
+        }
+    }
 }
